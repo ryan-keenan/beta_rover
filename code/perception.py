@@ -34,7 +34,7 @@ def rover_coords(binary_img):
     # Calculate pixel positions with reference to the rover position being at the 
     # center bottom of the image.  
     y_pixel = np.absolute(ypos - binary_img.shape[0]).astype(np.float)
-    x_pixel = (xpos - binary_img.shape[0]).astype(np.float)
+    x_pixel = (xpos - binary_img.shape[1]/2).astype(np.float)
     return x_pixel, y_pixel
 
 # Define a function to convert to radial coords in rover space
