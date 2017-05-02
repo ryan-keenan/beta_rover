@@ -33,7 +33,7 @@ def rover_coords(binary_img):
     ypos, xpos = binary_img.nonzero()
     # Calculate pixel positions with reference to the rover position being at the 
     # center bottom of the image.  
-    y_pixel = np.absolute(ypos - binary_img.shape[0]).astype(np.float)
+    y_pixel = (binary_img.shape[0] - ypos).astype(np.float)
     x_pixel = (xpos - binary_img.shape[1]/2).astype(np.float)
     return x_pixel, y_pixel
 
@@ -50,7 +50,7 @@ def to_polar_coords(x_pixel, y_pixel):
 # Define a function to map rover space pixels to world space
 def pix_to_world(dist, angles, x_rover, y_rover, yaw_rover):
     # Map pixels from rover space to world coords
-    pix_angles = angles + (yaw_rover * np.pi/180)    
+    pix_angles = angles + (yaw_rover * np.pi/180)
     # Assume a worldmap size of 200 x 200
     world_size = 200
     # Assume factor of 10 scale change between rover and world space
