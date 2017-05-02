@@ -38,7 +38,7 @@ def rover_coords(binary_img):
     return x_pixel, y_pixel
 
 # Define a function to convert to radial coords in rover space
-def to_radial_coords(x_pixel, y_pixel):
+def to_polar_coords(x_pixel, y_pixel):
     # Convert (x_pixel, y_pixel) to (distance, angle) 
     # in polar coordinates in rover space
     # Calculate distance to each pixel
